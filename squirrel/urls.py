@@ -17,11 +17,7 @@ from django.contrib import admin
 from django.urls import path
 
 urlpatterns = [
-    path('', views.index, name='index'),
-    path('map/', views.map, name='map'),
-    path('sightings/', views.sightings, name='sightings'),
-    path('sightings/<int:squirrel_id>/', views.update, name='update'),
-    path('sightings/add/', views.add, name='add'),
-    path('sightings/<int:squirrel_id>/', views.delete, name='delete'),
-    path('sightings/stats/', views.stats, name='stats'),
+    path('admin/', admin.site.urls),
+    path('map/',include('map.urls')),
+    path('sightings/', include('sightings.urls')),
 ]
