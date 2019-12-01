@@ -19,5 +19,6 @@ from django.conf.urls import include
 
 urlpatterns = [
     path('map/', include('map.urls')),
+    path('sightings/', include('sightings.urls')),
     path('admin/', admin.site.urls),
 ]

@@ -58,7 +58,7 @@ class Command(BaseCommand):
                         latitude = float(row[0]),
                         longtitude = float(row[1]),
                         squirrel_id = row[2]
-                        shift = row[4],
+                        shift = shift_temp,
                         date = datetime.date(int(row[5][-4:]),int(row[5][:2]),int(row[5][2:4])),
                         age = age_temp,
                         color = color_temp,
