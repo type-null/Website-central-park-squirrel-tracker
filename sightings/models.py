@@ -11,7 +11,7 @@ class Squirrel(models.Model):
         help_text=_('Longitude'),
     )
 
-    squirrel_id = CharField(
+    squirrel_id = models.CharField(
         help_text=_('Unique Squirrel ID'),
         max_length=50
     )
@@ -116,7 +116,7 @@ class Squirrel(models.Model):
         default=False,
     )
 
-    other_activities = CharField(
+    other_activities = models.CharField(
         help_text = _('Other Activities'),
         max_length=100,
     )
