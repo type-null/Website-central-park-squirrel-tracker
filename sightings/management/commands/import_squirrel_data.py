@@ -57,7 +57,7 @@ class Command(BaseCommand):
                     _, created = Squirrel.objects.get_or_create(
                         latitude = float(row[0]),
                         longtitude = float(row[1]),
-                        squirrel_id = row[2]
+                        squirrel_id = row[2],
                         shift = shift_temp,
                         date = datetime.date(int(row[5][-4:]),int(row[5][:2]),int(row[5][2:4])),
                         age = age_temp,
