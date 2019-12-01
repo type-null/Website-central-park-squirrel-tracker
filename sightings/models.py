@@ -7,7 +7,7 @@ class Squirrel(models.Model):
         help_text=_('Latitude'),
     )
 
-    longitude = models.Floatfield(
+    longitude = models.FloatField(
         help_text=_('Longitude'),
     )
 
