@@ -8,7 +8,7 @@ class Command(BaseCommand):
     help = 'export squirrel data to custom path'
     
     def add_arguments(self, parser):
-        parser.add_argument('path', nargs='+', type=str, help='/path/to/file.csv')
+        parser.add_argument('path', type=str, help='/path/to/file.csv')
         
     def handle(self, *args, **options):
         path = options['path']

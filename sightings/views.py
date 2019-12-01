@@ -1,5 +1,5 @@
+from django.http import HttpResponse
 from django.shortcuts import render
-
 from .models import Squirrel
 
 # Create your views here.
@@ -10,7 +10,7 @@ def update_delete(request):
         return HttpResponse("Delte")
 
 def list(request):
-    squirrel_list = Squirrel.objects.order_by( 
+    return None 
 
 def add(request):
     return HttpResponse("Add")

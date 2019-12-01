@@ -6,14 +6,14 @@ import datetime
 class Command(BaseCommand):
     help = 'import squirrel data from custom path'
 
-    def booler(b):
+    def booler(self, b):
         if b.lower() == "true":
             return True
         else:
             return False
 
     def add_arguments(self, parser):
-        parser.add_argument('path', nargs='+', type=str, help='/path/to/file.csv')
+        parser.add_argument('path', type=str, help='/path/to/file.csv')
 
     def handle(self, *args, **options):
         path = options['path']
@@ -56,7 +56,7 @@ class Command(BaseCommand):
 
                     _, created = Squirrel.objects.get_or_create(
                         latitude = float(row[0]),
-                        longtitude = float(row[1]),
+                        longitude = float(row[1]),
                         squirrel_id = row[2],
                         shift = shift_temp,
                         date = datetime.date(int(row[5][-4:]),int(row[5][:2]),int(row[5][2:4])),
@@ -64,20 +64,20 @@ class Command(BaseCommand):
                         color = color_temp,
                         location = location_temp,
                         specific_location = row[14],
-                        running = booler(row[15]),
-                        chasing = booler(row[16]),
-                        climbing = booler(row[17]),
-                        eating = booler(row[18]),
-                        foraging = booler(row[19]),
+                        running = self.booler(row[15]),
+                        chasing = self.booler(row[16]),
+                        climbing = self.booler(row[17]),
+                        eating = self.booler(row[18]),
+                        foraging = self.booler(row[19]),
                         other_activities = row[20],
-                        kuks = booler(row[21]),
-                        quaas = booler(row[22]),
-                        moans = booler(row[23]),
-                        tail_flags = booler(row[24]),
-                        tail_twitches = booler(row[25]),
-                        approaches = booler(row[26]),
-                        indifferent = booler(row[27]),
-                        runs_from = booler(row[28]),
+                        kuks = self.booler(row[21]),
+                        quaas = self.booler(row[22]),
+                        moans = self.booler(row[23]),
+                        tail_flags = self.booler(row[24]),
+                        tail_twitches = self.booler(row[25]),
+                        approaches = self.booler(row[26]),
+                        indifferent = self.booler(row[27]),
+                        runs_from = self.booler(row[28]),
                     )
 
 
