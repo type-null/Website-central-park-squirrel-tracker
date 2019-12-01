@@ -26,25 +26,39 @@ class Command(BaseCommand):
                 if title:
                     title = False
                 else:
-
-                    if row[7] is in ['Adult', 'Juvenile']:
-                        age_temp = row[7]
+                    if row[4] == 'AM':
+                        shift_temp = Squirrel.AM
                     else:
-                        age_temp = 'Other'
+                        shift_temp = Squirrel.PM
 
-                    if row[8] is in ['Gray', 'Cinnamon','Black']:
-                        color_temp = row[8]
+                    if row[7] == 'Adult':
+                        age_temp = Squirrel.ADULT
+                    elif row[7] == 'Juvenile':
+                        age_temp = Squirrel.JUVENILE
                     else:
-                        color_temp = 'Unknown'
+                        age_temp = Squirrel.UNKNOWN
 
-                    if row[12] is in ['Ground Plane', 'Above Ground']:
-                        location_temp = row[12]
+                    if row[8] == 'Gray':
+                        color_temp = Squirrel.GRAY
+                    elif row[8] == 'Cinnamon':
+                        color_temp = Squirrel.CINNAMON
+                    elif row[8] == 'Black':
+                        color_temp = Squirrel.BLACK
                     else:
-                        location_temp = 'Unknown'
+                        color_temp = Squirrel.UNKNOWN
+
+                    if row[12] == 'Ground Plane':
+                        location_temp = Squirrel.GROUND_PLANE
+                    elif row[12] == 'Above Ground':
+                        location_temp = Squirrel.ABOVE_GROUND
+                    else:
+                        location_temp = Squirrel.UNKNOWN
 
                     _, created = Squirrel.objects.get_or_create(
-                        latitude, longtitude = float(row[0]), float(row[1]),
-                        squirrel_id, shift = row[2], row[4],
+                        latitude = float(row[0]),
+                        longtitude = float(row[1]),
+                        squirrel_id = row[2]
+                        shift = row[4],
                         date = datetime.date(int(row[5][-4:]),int(row[5][:2]),int(row[5][2:4])),
                         age = age_temp,
                         color = color_temp,
