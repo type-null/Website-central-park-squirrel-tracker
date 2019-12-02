@@ -8,8 +8,8 @@
     <h1>Squirrel Data</h1>
         <ul>
     <li><span>Click on Unique Squirrel ID to UPDATE or DELETE a sighting!</span></li>
-    <li><a href='/sightings/add'><span>Click to create a new sighting</span></a></li>
-    <li><a href='/sightings/stats'><span>Click to see general stats about the sightings</span></a></li>
+    <li><a href="{% url 'add' %}"><span>Click to create a new sighting</span></a></li>
+    <li><a href="{% url 'stats' %}"><span>Click to see general stats about the sightings</span></a></li>
 </ul>
 <table style="border: 1px solid lightgrey; border-collapse: collapse">
 <tbody>
@@ -52,6 +52,7 @@
     <td>{{ sighting.chasing }}</td>
     <td>{{ sighting.climbing }}</td>
     <td>{{ sighting.eating }}</td>
+    <td>{{ sighting.foraging }}</td>
     <td>{{ sighting.other_activities }}</td>
     <td>{{ sighting.kuks }}</td>
     <td>{{ sighting.quaas }}</td>

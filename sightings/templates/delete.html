@@ -1,0 +1,11 @@
+<head>
+    <title>Deleting</title>
+</head>
+<body>
+        <h>Deleting squirrel {{ sighting.squirrel_id }} ...</h>
+		<form  method="POST">
+		{% csrf_token %}
+		<input type="submit" value="Proceed" />
+		</form>
+		<a href="{% url 'list' %}">Cancel</a>
+</body>

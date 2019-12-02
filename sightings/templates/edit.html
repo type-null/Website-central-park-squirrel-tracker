@@ -1,0 +1,29 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="author" content="Weihang Ren, Zhongyu Zhang" />
+</head>
+    <body>
+    <h1>Squirrel {{ sighting.squirrel_id }} Data Editing</h1>
+        <p><input type="button" onclick="window.location.href = '{% url 'list' %};" value="<-- Back to Sightings"/></p>
+	<form method=POST action="update">
+		{{ sighting.as_p }}
+	</form>
+{% csrf_token %}
+<table style="border: 1px solid lightgrey; border-collapse: collapse">
+<tbody>
+    <tr>
+<th bgcolor="#EBECF0" style="vertical-align: middle; text-align: center; border: 1px solid white; border-collapse: collapse;">Latitude</th><td><input type='number' value={{ sighting.latitude }}></td>
+<th bgcolor="#EBECF0" style="vertical-align: middle; text-align: center; border: 1px solid white; border-collapse: collapse;">Longitude</th><td><input type='number' value={{ sighting.longitude }}></td>
+<th bgcolor="#EBECF0" style="vertical-align: middle; text-align: center; border: 1px solid white; border-collapse: collapse;">Shift</th><td><input type='choice' value={{ sighting.get_shift_display }}></td>
+    </tr>
+    <tr>
+<th bgcolor="#EBECF0" style="vertical-align: middle; text-align: center; border: 1px solid white; border-collapse: collapse;">Date</th><td><input type='text' name='Date' value={{sighting.Date}}></td>
+<th bgcolor="#EBECF0" style="vertical-align: middle; text-align: center; border: 1px solid white; border-collapse: collapse;">Age</th><td><select><option {{ sighting.get_age_display }}>{{ sighting.get_age_display }}</select></td>
+<th bgcolor="#EBECF0" style="vertical-align: middle; text-align: center; border: 1px solid white; border-collapse: collapse;">Primary Fur Color</th>
+    </tr>
+    </tbody>
+</table>
+    </body>
+</html>
