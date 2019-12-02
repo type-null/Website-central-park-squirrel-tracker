@@ -1,0 +1,72 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="author" content="Weihang Ren, Zhongyu Zhang" />
+</head>
+    <body>
+    <h1>Squirrel Data</h1>
+        <ul>
+    <li><span>Click on Unique Squirrel ID to UPDATE or DELETE a sighting!</span></li>
+    <li><a href='/sightings/add'><span>Click to create a new sighting</span></a></li>
+    <li><a href='/sightings/stats'><span>Click to see general stats about the sightings</span></a></li>
+</ul>
+<table style="border: 1px solid lightgrey; border-collapse: collapse">
+<tbody>
+<tr><th bgcolor="#EBECF0" style="vertical-align: middle; text-align: center; border: 1px solid white; border-collapse: collapse;">Unique Squirrel ID</th>
+<th bgcolor="#EBECF0" style="vertical-align: middle; text-align: center; border: 1px solid white; border-collapse: collapse;">Latitude</th>
+<th bgcolor="#EBECF0" style="vertical-align: middle; text-align: center; border: 1px solid white; border-collapse: collapse;">Longitude</th>
+<th bgcolor="#EBECF0" style="vertical-align: middle; text-align: center; border: 1px solid white; border-collapse: collapse;">Shift</th>
+<th bgcolor="#EBECF0" style="vertical-align: middle; text-align: center; border: 1px solid white; border-collapse: collapse;">Date</th>
+<th bgcolor="#EBECF0" style="vertical-align: middle; text-align: center; border: 1px solid white; border-collapse: collapse;">Age</th>
+<th bgcolor="#EBECF0" style="vertical-align: middle; text-align: center; border: 1px solid white; border-collapse: collapse;">Primary Fur Color</th>
+<th bgcolor="#EBECF0" style="vertical-align: middle; text-align: center; border: 1px solid white; border-collapse: collapse;">Location</th>
+<th bgcolor="#EBECF0" style="vertical-align: middle; text-align: center; border: 1px solid white; border-collapse: collapse;">Specific Location</th>
+<th bgcolor="#EBECF0" style="vertical-align: middle; text-align: center; border: 1px solid white; border-collapse: collapse;">Running</th>
+<th bgcolor="#EBECF0" style="vertical-align: middle; text-align: center; border: 1px solid white; border-collapse: collapse;">Chasing</th>
+<th bgcolor="#EBECF0" style="vertical-align: middle; text-align: center; border: 1px solid white; border-collapse: collapse;">Climbing</th>
+<th bgcolor="#EBECF0" style="vertical-align: middle; text-align: center; border: 1px solid white; border-collapse: collapse;">Eating</th>
+<th bgcolor="#EBECF0" style="vertical-align: middle; text-align: center; border: 1px solid white; border-collapse: collapse;">Foraging</th>
+<th bgcolor="#EBECF0" style="vertical-align: middle; text-align: center; border: 1px solid white; border-collapse: collapse;">Other Activities</th>
+<th bgcolor="#EBECF0" style="vertical-align: middle; text-align: center; border: 1px solid white; border-collapse: collapse;">Kuks</th>
+<th bgcolor="#EBECF0" style="vertical-align: middle; text-align: center; border: 1px solid white; border-collapse: collapse;">Quaas</th>
+<th bgcolor="#EBECF0" style="vertical-align: middle; text-align: center; border: 1px solid white; border-collapse: collapse;">Moans</th>
+<th bgcolor="#EBECF0" style="vertical-align: middle; text-align: center; border: 1px solid white; border-collapse: collapse;">Tail Flags</th>
+<th bgcolor="#EBECF0" style="vertical-align: middle; text-align: center; border: 1px solid white; border-collapse: collapse;">Tail Twitches</th>
+<th bgcolor="#EBECF0" style="vertical-align: middle; text-align: center; border: 1px solid white; border-collapse: collapse;">Approaches</th>
+<th bgcolor="#EBECF0" style="vertical-align: middle; text-align: center; border: 1px solid white; border-collapse: collapse;">Indifferent</th>
+<th bgcolor="#EBECF0" style="vertical-align: middle; text-align: center; border: 1px solid white; border-collapse: collapse;">Runs From</th></tr>
+{% if sightings %}
+    {% for sighting in sightings %}
+<tr>
+    <td><a href="/sightings/{{ sighting.squirrel_id }}/">{{ sighting.squirrel_id }}</a></td>
+    <td>{{ sighting.latitude }}</td>
+    <td>{{ sighting.longitude }}</td>
+    <td>{{ sighting.shift }}</td>
+    <td>{{ sighting.date }}</td>
+    <td>{{ sighting.age }}</td>
+    <td>{{ sighting.color }}</td>
+    <td>{{ sighting.location }}</td>
+    <td>{{ sighting.specific_location }}</td>
+    <td>{{ sighting.running }}</td>
+    <td>{{ sighting.chasing }}</td>
+    <td>{{ sighting.climbing }}</td>
+    <td>{{ sighting.eating }}</td>
+    <td>{{ sighting.other_activities }}</td>
+    <td>{{ sighting.kuks }}</td>
+    <td>{{ sighting.quaas }}</td>
+    <td>{{ sighting.moans }}</td>
+    <td>{{ sighting.tail_flags }}</td>
+    <td>{{ sighting.tail_twitches }}</td>
+    <td>{{ sighting.approaches }}</td>
+    <td>{{ sighting.indifferent }}</td>
+    <td>{{ sighting.runs_from }}</td>
+</tr>
+    {% endfor %}
+{% else %}
+    <tr><td>No squirrels found.</td></tr>
+{% endif %}
+</tbody>
+</table>
+    </body>
+</html>

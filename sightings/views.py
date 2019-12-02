@@ -10,7 +10,9 @@ def update_delete(request):
         return HttpResponse("Delte")
 
 def list(request):
-    return None 
+    sightings = Squirrel.objects.order_by('-squirrel_id')
+    context = {'sightings': sightings}
+    return render(request, 'sightings.html', context)
 
 def add(request):
     return HttpResponse("Add")
