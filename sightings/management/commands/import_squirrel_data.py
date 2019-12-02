@@ -55,8 +55,8 @@ class Command(BaseCommand):
                         location_temp = Squirrel.UNKNOWN
 
                     _, created = Squirrel.objects.get_or_create(
-                        latitude = float(row[0]),
-                        longitude = float(row[1]),
+                        longitude = float(row[0]),
+                        latitude = float(row[1]),
                         squirrel_id = row[2],
                         shift = shift_temp,
                         date = datetime.date(int(row[5][-4:]),int(row[5][:2]),int(row[5][2:4])),

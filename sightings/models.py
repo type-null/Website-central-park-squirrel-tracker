@@ -2,14 +2,14 @@ from django.db import models
 from django.utils.translation import gettext as _
 
 class Squirrel(models.Model):
-    latitude = models.FloatField(
-        help_text=_('Latitude'),
-    )
-    
     longitude = models.FloatField(
         help_text=_('Longitude'),
     )
-    
+
+    latitude = models.FloatField(
+        help_text=_('Latitude'),
+    )
+      
     squirrel_id = models.CharField(
         help_text=_('Unique Squirrel ID'),
         max_length=50
