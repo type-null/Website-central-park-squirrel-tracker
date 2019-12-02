@@ -5,11 +5,9 @@
 <meta name="author" content="Weihang Ren, Zhongyu Zhang" />
 </head>
     <body>
-    <h1>Squirrel {{ sighting.squirrel_id }} Data Editing</h1>
-        <p><input type="button" onclick="window.location.href = '{% url 'list' %};" value="<-- Back to Sightings"/></p>
-	<form method=POST action="update">
-		{{ sighting.as_p }}
-	</form>
+    <h1>Squirrel {{ sighting.squirrel_id }} Data UPDATE or DELETE</h1>
+      <p><input type="button" onclick="window.location.href='/sightings'" value="<-- Back to Sightings"/></p> 
+<form method="POST">
 {% csrf_token %}
 <table style="border: 1px solid lightgrey; border-collapse: collapse">
 <tbody>
@@ -25,5 +23,8 @@
     </tr>
     </tbody>
 </table>
+    <input type="submit" value="Update" />
+		</form>
+<p><input type="button" onclick="window.location.href='/sightings/{{ sighting.squirrel_id }}/delete'" value="--=== Delete this sighting ===--"/></p>
     </body>
 </html>

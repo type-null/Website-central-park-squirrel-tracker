@@ -3,6 +3,11 @@ from .models import Squirrel
 
 # Create your views here.
 def update(request, squirrel_id):
+    sighting = Squirrel.objects.get(squirrel_id=squirrel_id)
+    if request.method == 'POST':
+        sighting.save()
+    else:
+        return render(request, 'update.html', {'sighting': sighting})
     return render_to_response('edit.html', {'sighting': sighting})
 
 def list(request):
@@ -22,4 +27,4 @@ def delete(request, squirrel_id):
         sighting.delete()
         return redirect('list')
     else:
-        return(render(request,'delete.html', {'sighting':sighting}))
+        return render(request,'delete.html', {'sighting':sighting})
