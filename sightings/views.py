@@ -24,8 +24,25 @@ def add(request):
     return render(request, "Add", {'sightings': sightings}) 
 
 def stats(request):
-    sightings = Squirrel.objects.order_by('-squirrel_id')
-    return render(request, "Stats", {'sightings': sightings}) 
+    total_number = Squirrel.objects.all().count()
+    adult = Squirrel.objects.filter(age='Adult').count()
+    juvenile = Squirrel.objects.filter(age='Juvenile').count()
+    black = Squirrel.objects.filter(color='Black').count()
+    cinnamon = Squirrel.objects.filter(color='Cinnamon').count()
+    gray = Squirrel.objects.filter(color='Gray').count()
+    approach = Squirrel.objects.filter(approaches=True).count()
+    run = Squirrel.objects.filter(runs_from=True).count()
+    context = {
+        'total_numbel': total_number,
+        'adult': adult,
+        'juvenile': juvenile,
+        'black': black,
+        'cinnamon': cinnamon,
+        'gray': gray,
+        'approach': approach,
+        'run': run,
+    }
+    return render(request, 'stats.html', context) 
 
 def delete(request, squirrel_id):
     sighting = Squirrel.objects.get(squirrel_id=squirrel_id)
