@@ -2,43 +2,20 @@
 <html lang="en">
 <head>
 <meta charset="utf-8">
-<meta name="author" content="Weihang Ren, Zhongyu Zhang" />
+<meta name="author" content="Weihang Ren, Zhongyu Zhang" >
+<title>Update</title>
 </head>
     <body>
-    <h1>Squirrel {{ sighting.squirrel_id }} Data UPDATE or DELETE</h1>
-        <p><input type="button" onclick="window.location.href='/sightings'" value="<-- Back to Sightings"/></p>
-        
-<form method="POST">
-{% csrf_token %}
-<table style="border: 1px solid lightgrey; border-collapse: collapse">
-<tbody>
-   <tr>
-<th bgcolor="#EBECF0" style="vertical-align: middle; text-align: center; border: 1px solid white; border-collapse: collapse;">Latitude</th><td><input type='float' name='latitude' value={{ sighting.latitude }}></td>
-<th bgcolor="#EBECF0" style="vertical-align: middle; text-align: center; border: 1px solid white; border-collapse: collapse;">Longitude</th><td><input type='float' name='longitude' value={{ sighting.longitude }}></td>
-<th bgcolor="#EBECF0" style="vertical-align: middle; text-align: center; border: 1px solid white; border-collapse: collapse;">Shift</th>
-        <td><select>
-        {% for choice in sighting.SHIFT_CHOICES %}
-       <option value="{{ choice }}"{% if sighting.get_shift_display == choice %} selected{% endif %}>{{ choice }}</option>
-            {% endfor %}</select>
-        </td>
-    </tr>
-    <tr>
-<th bgcolor="#EBECF0" style="vertical-align: middle; text-align: center; border: 1px solid white; border-collapse: collapse;">Date</th><td><input type='text' name='date' value={{ sighting.date }}></td>
-<th bgcolor="#EBECF0" style="vertical-align: middle; text-align: center; border: 1px solid white; border-collapse: collapse;">Age</th><td><select>
-        {% for choice in sighting.AGE_CHOICES %}
-       <option value="{{ choice }}"{% if sighting.get_age_display == choice %} selected{% endif %}>{{ choice }}</option>
-    {% endfor %}</select>
-        </td>
-<th bgcolor="#EBECF0" style="vertical-align: middle; text-align: center; border: 1px solid white; border-collapse: collapse;">Primary Fur Color</th><td><select>
-        {% for choice in sighting.COLOR_CHOICES %}
-       <option value="{{ choice }}"{% if sighting.get_color_display == choice %} selected{% endif %}>{{ choice }}</option>
-    {% endfor %}</select>
-        </td>
-    </tr>
-    </tbody>
-</table>
-    <input type="submit" value="Update" />
-		</form>
-        <p><input type="button" onclick="window.location.href='/sightings/{{ sighting.squirrel_id }}/delete'" value="--=== Delete this sighting ===--"/></p>
+	<h1>Squirrel {{ sighting.squirrel_id }} Data UPDATE or DELETE</h1>
+        <p><input type="button" onclick="window.location.href='/sightings'" value="<-- Back to Sightings"></p>
+    <form method="post">
+      {% csrf_token %}
+      
+      {{ form.as_p }}
+      <br>
+    <input type="submit" value="Update" >
+                </form>
+    <br>
+    <p><input type="button" onclick="window.location.href='/sightings/{{ sighiting.squirrel_id }}/delete'" value="--=== Delete this sighting ===--"></p>
     </body>
 </html>
