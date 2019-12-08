@@ -1,27 +1,41 @@
 from django.shortcuts import render, get_object_or_404, redirect
 from .models import Squirrel
+from .forms import SquirrelForm
 
 # Create your views here.
-def update(request, squirrel_id):
-    sighting = Squirrel.objects.get(squirrel_id=squirrel_id)
-    if request.method == 'POST':
-        sighitng.longitude.get(request.POST['longitude'])
-        sighitng.latitude.get(request.POST['latitude'])
-        sighitng.shift.get(request.POST['shift'])
-        sighitng.date.get(request.POST['date'])
-        sighitng.age.get(request.POST['age'])
-        sighting.color=request.POST['color']
-        return render(request, 'sightings.html', {'sighting': sighting})
-    return render(request, 'update.html', {'sighting': sighting})
-
 def list(request):
     sightings = Squirrel.objects.order_by('-squirrel_id')
     context = {'sightings': sightings}
     return render(request, 'sightings.html', context)
 
+def update(request, squirrel_id):
+    sighting = Squirrel.objects.get(squirrel_id=squirrel_id)
+    if request.method == 'POST':
+        form = SquirrelForm(request.POST, instance=sighting)
+        # check data with form
+        if form.is_valid():
+            form.save()
+            return redirect(f'/sightings/{squirrel_id}')
+    else:
+        form = SquirrelForm(instance=sighting)
+    context = {
+        'form': form
+    }
+    return render(request, 'update.html', context)
+
 def add(request):
-    sightings = Squirrel.objects.order_by('-squirrel_id')
-    return render(request, "Add", {'sightings': sightings}) 
+    if request.method == 'POST':
+        form = SquirrelForm(request.POST)
+        # check data with form
+        if form.is_valid():
+            form.save()
+            return redirect(f'/sightings')
+    else:
+        form = SquirrelForm()
+    context = {
+        'form': form
+    }
+    return render(request, 'update.html', context)
 
 def stats(request):
     total_number = Squirrel.objects.all().count()
