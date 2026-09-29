@@ -1,3 +1,27 @@
+# Central Park Squirrel Field Notes
+
+A preserved, interactive exhibit of the **2018 Central Park Squirrel Census**, revived from the 2019 course project by **Weihang Ren and Zhongyu Zhang**. Explore all 3,023 saved observations with a geographic map, filters, observer notes, and accessible sighting cards.
+
+```sh
+python3 scripts/build_site.py
+```
+
+Open **`site/index.html`** directly. The complete exhibit works offline and is ready to publish from this repository’s own GitHub Pages. No installation or server is required to export it; Python 3.9+ and its standard library are sufficient. Edit the files under `exhibit/`, then export again. The original `test.csv` and Django project remain intact.
+
+The ready-to-open `site/` directory is included in version control. After pushing these files to `type-null/Website-central-park-squirrel-tracker`, choose **Settings → Pages → Build and deployment → Source → GitHub Actions**. On every push to `main` or `master`, the included workflow rebuilds from this repository’s local sources, checks the result, and publishes `site/` at:
+
+**https://type-null.github.io/Website-central-park-squirrel-tracker/**
+
+**Prepared locally; not yet deployed.** The main blog can embed this URL with an open-in-new-tab button and a local screenshot fallback. When this repository deploys an update, that embedded URL serves the new version without copying app files into the blog repository. This public static project site fits GitHub Pages’ free hosting model.
+
+See **[docs/EXHIBIT.md](docs/EXHIBIT.md)** for the export workflow, data provenance, interpretation limits, and validation commands. This is a read-only archive: deployment follows repository changes, but there is no scheduled data refresh or collection of new sightings.
+
+---
+
+## Historical project README (2019)
+
+The original documentation below is preserved for context. Its server links and Django instructions describe the historical project, not the static exhibit above.
+
 # IEORE4501 Final Project - Squirrel Tracker
 
 

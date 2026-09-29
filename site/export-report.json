@@ -1,0 +1,10 @@
+{
+  "generator": "central-park-squirrel-exhibit",
+  "format": 1,
+  "records": 3023,
+  "source_sha256": "515b79421b3fb6039b703bca0f2ea369f530924d4b746784c4105c3989aad12f",
+  "first_date": "2018-10-06",
+  "last_date": "2018-10-20",
+  "unique_ids": 3018,
+  "runtime": "offline static HTML; no server required"
+}

@@ -1,0 +1,35 @@
+[
+  {
+    "width": 1440,
+    "ready_ms": 203.6,
+    "external_requests": [],
+    "errors": [],
+    "failed_resources": [],
+    "overflow": false,
+    "observations": 3023,
+    "rendered_cards": 12,
+    "portable_file_url": true
+  },
+  {
+    "width": 390,
+    "ready_ms": 72.9,
+    "external_requests": [],
+    "errors": [],
+    "failed_resources": [],
+    "overflow": false,
+    "observations": 3023,
+    "rendered_cards": 12,
+    "portable_file_url": true
+  },
+  {
+    "width": 278,
+    "ready_ms": 70.1,
+    "external_requests": [],
+    "errors": [],
+    "failed_resources": [],
+    "overflow": false,
+    "observations": 3023,
+    "rendered_cards": 12,
+    "portable_file_url": true
+  }
+]
