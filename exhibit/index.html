@@ -3,9 +3,9 @@
 <head>
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width, initial-scale=1">
-  <meta name="description" content="Explore 3,023 observations from the 2018 Central Park Squirrel Census. An interactive, offline archive of a 2019 student project.">
+  <meta name="description" content="A little squirrel spotting in Central Park. Explore 3,023 sightings, follow curious field notes, and find a tiny story on the map.">
   <meta name="theme-color" content="#367764">
-  <title>Central Park Squirrel Field Notes · 2018 archive</title>
+  <title>Central Park Squirrels · Field Notes</title>
   <link rel="stylesheet" href="assets/exhibit.css">
   <script defer src="census-data.js"></script>
   <script defer src="assets/park-boundary.js"></script>
@@ -13,17 +13,17 @@
 </head>
 <body>
 <a class="skip-link" href="#explore">Skip to sightings</a>
-<header class="masthead"><a class="brand" href="index.html"><span class="brand-mark" aria-hidden="true">●</span> FIELD NOTES <span>Central Park</span></a><span class="archive-label">2018 CENSUS ARCHIVE</span></header>
+<header id="top" class="masthead"><a class="brand" href="index.html"><span class="brand-mark" aria-hidden="true">●</span> FIELD NOTES <span>Central Park</span></a><span class="spotting-label">HELLO, SQUIRRELS</span></header>
 <main>
   <section class="hero" aria-labelledby="hero-title">
-    <div class="hero-copy"><p class="eyebrow">SMALL ENCOUNTERS / NEW YORK CITY</p><h1 id="hero-title">A little wild<br>in the city<span>.</span></h1><p>One park. Thousands of small stories.<br>Follow the squirrels of Central Park through the observations of the 2018 Squirrel Census.</p><a class="button" href="#explore">Explore the sightings <span aria-hidden="true">↓</span></a></div>
+    <div class="hero-copy"><p class="eyebrow">SMALL ENCOUNTERS / NEW YORK CITY</p><h1 id="hero-title">A little wild<br>in the city<span>.</span></h1><p>One park. Thousands of little moments.<br>Follow a busy tail, find a favorite spot, and see what the squirrels were up to.</p><a class="button" href="#explore">Explore the sightings <span aria-hidden="true">↓</span></a></div>
     <div class="hero-art" aria-hidden="true"><svg viewBox="0 0 480 360"><circle cx="240" cy="170" r="143" fill="#e1edce"/><path d="M72 296 Q233 272 418 296" fill="none" stroke="#b7cea1" stroke-width="3"/><path d="M230 232 C140 264 92 204 111 143 C122 105 150 90 174 98 C205 108 210 147 189 166 C177 177 151 175 150 155 C135 181 158 199 183 186 C234 160 244 230 230 232Z" fill="#c59165"/><path d="M217 275 C188 248 204 205 230 177 C242 163 243 144 260 132 L257 105 L276 119 L299 96 L300 126 C335 127 348 144 340 165 L316 186 C302 211 310 246 300 275Z" fill="#a66f47"/><path d="M263 189 C273 192 291 194 298 206 L302 273 L246 273 C230 244 241 212 263 189Z" fill="#efdbb9"/><ellipse cx="322" cy="148" rx="5" ry="6" fill="#3a443a"/><path d="M339 153 L348 156 L341 161Z" fill="#3a443a"/><path d="M253 215 Q278 218 291 204" fill="none" stroke="#805438" stroke-width="8" stroke-linecap="round"/><path d="M219 272 Q204 282 218 288 L251 288 M285 274 Q284 286 300 288 L325 288" fill="none" stroke="#a66f47" stroke-width="11" stroke-linecap="round"/><path d="M290 204 Q277 189 289 180 Q304 176 306 192Z" fill="#c98d39"/><path d="M282 182 Q293 170 305 181" fill="none" stroke="#805e32" stroke-width="7" stroke-linecap="round"/><g fill="#729a68"><ellipse cx="88" cy="239" rx="11" ry="23" transform="rotate(-34 88 239)"/><ellipse cx="107" cy="254" rx="9" ry="18" transform="rotate(25 107 254)"/><ellipse cx="380" cy="234" rx="12" ry="25" transform="rotate(33 380 234)"/><ellipse cx="366" cy="264" rx="9" ry="21" transform="rotate(-28 366 264)"/></g><g fill="#e7bc65"><circle cx="370" cy="93" r="7"/><circle cx="111" cy="75" r="5"/><circle cx="351" cy="59" r="3"/></g></svg><span class="art-note">A FIELD GUIDE TO EVERYDAY WONDER</span></div>
   </section>
-  <div class="archive-strip"><span><strong>3,023</strong> recorded sightings</span><span><strong>October 2018</strong> census observations</span><span><strong>2019</strong> original student project</span></div>
+  <div class="sighting-strip"><span><strong>3,023</strong> recorded sightings</span><span><strong>October 2018</strong> field notes</span><span><strong>Central Park</strong> New York City</span></div>
   <section id="explore" class="explore" aria-labelledby="explore-title">
-    <div class="section-heading"><div><p class="eyebrow">EXPLORE THE ARCHIVE</p><h2 id="explore-title">Every dot has a story.</h2></div><p>Pick a color, follow an activity, or open a sighting.<br>These are observations, not a count of unique animals.</p></div>
-    <noscript><div class="notice">The interactive map needs JavaScript. You can still <a href="census-original.csv" download>download the complete original census CSV</a> and read about the project below.</div></noscript>
-    <form id="filters" class="filters" role="search" aria-label="Filter census sightings">
+    <div class="section-heading"><div><p class="eyebrow">LET’S GO SQUIRREL SPOTTING</p><h2 id="explore-title">Every dot has a story.</h2></div><p>Pick a color, follow an activity, or open a sighting.<br>See what was happening around the park.</p></div>
+    <noscript><div class="notice">Turn on JavaScript to explore the map, or <a href="census-original.csv" download>download the sightings</a>.</div></noscript>
+    <form id="filters" class="filters" role="search" aria-label="Filter squirrel sightings">
       <label class="search-field">Search field notes<input id="search" type="search" placeholder="Sighting ID, location, notes…" autocomplete="off"></label>
       <label>Fur color<select id="fur"><option value="">All colors</option><option>Gray</option><option>Cinnamon</option><option>Black</option><option>Unknown</option></select></label>
       <label>Age<select id="age"><option value="">All ages</option><option>Adult</option><option>Juvenile</option><option>Unknown</option></select></label>
@@ -32,9 +32,9 @@
       <label>Date<select id="date"><option value="">All dates</option></select></label>
       <button class="reset" type="reset">Reset filters</button>
     </form>
-    <div class="result-bar"><p id="result-count" role="status" aria-live="polite">Loading the census…</p><div class="legend" aria-label="Map colors"><span><i class="gray"></i>Gray</span><span><i class="cinnamon"></i>Cinnamon</span><span><i class="black"></i>Black</span><span><i class="unknown"></i>Unknown</span></div></div>
+    <div class="result-bar"><p id="result-count" role="status" aria-live="polite">Looking for squirrels…</p><div class="legend" aria-label="Map colors"><span><i class="gray"></i>Gray</span><span><i class="cinnamon"></i>Cinnamon</span><span><i class="black"></i>Black</span><span><i class="unknown"></i>Unknown</span></div></div>
     <div class="explorer-grid">
-      <div class="map-panel"><div class="map-heading"><span>THE OBSERVATION MAP</span><span aria-hidden="true">N ↑</span></div><div class="canvas-wrap"><canvas id="map" width="640" height="680" role="img" aria-label="Geographic plot of matching squirrel sightings; the same sightings can be selected with the list below."></canvas><div class="map-hint">Click a dot to open its field note</div></div><p class="map-caption">Actual census coordinates · north up<br>NYC Parks boundary, retrieved September 2026; no live tiles.</p></div>
+      <div class="map-panel"><div class="map-heading"><span>AROUND THE PARK</span><span aria-hidden="true">N ↑</span></div><div class="canvas-wrap"><canvas id="map" width="640" height="680" role="img" aria-label="Geographic plot of matching squirrel sightings; the same sightings can be selected with the list below."></canvas><div class="map-hint">Tap a dot. Find a little story.</div></div><p class="map-caption">October 2018 sightings · north up<br>Current park outline for orientation.</p></div>
       <aside id="detail" class="detail-panel" aria-labelledby="detail-heading" tabindex="-1"><p class="eyebrow">SIGHTING FIELD NOTE</p><h3 id="detail-heading">Choose a sighting</h3><p>Select a dot on the map or a card below to discover its story.</p></aside>
     </div>
     <div id="summary" class="summary" aria-label="Statistics for matching sightings"></div>
@@ -43,8 +43,7 @@
     <p id="empty" class="empty" hidden>No sightings match these filters. Try a broader search or reset the filters.</p>
     <div class="pagination"><button id="previous" class="button secondary" type="button">← Previous</button><span id="page-label"></span><button id="next" class="button secondary" type="button">Next →</button></div>
   </section>
-  <section class="about" aria-labelledby="about-heading"><div><p class="eyebrow">PRESERVED, WITH CURIOSITY</p><h2 id="about-heading">A student project,<br>a new life in the browser.</h2><p>Originally created in 2019 by <strong>Weihang Ren and Zhongyu Zhang</strong> for IEORE4501 Tools for Analytics, this project explored the 2018 Central Park Squirrel Census. This exhibit preserves those observations as a read-only archive.</p></div><div class="about-note"><h3>Read the observations with care.</h3><p>A sighting is an observation, not an individually tracked animal. Fur colors and behaviors are reported by observers. Missing information stays “Unknown”; overlapping activities can total more than 100%.</p><p>The original CSV is included unchanged. The map plots its longitude and latitude over the current NYC Parks property boundary, retrieved in September 2026. This boundary is context, not a reconstruction of the 2018 survey area; all observations are retained, including those just outside it. This archive does not collect new sightings.</p><div class="about-links"><a href="census-original.csv" download>Download original CSV ↓</a><a href="https://github.com/type-null/Website-central-park-squirrel-tracker" target="_blank" rel="noopener noreferrer">Original project ↗</a><a href="https://data.cityofnewyork.us/Recreation/Parks-Properties/enfh-gkve" target="_blank" rel="noopener noreferrer">Boundary: NYC Parks ↗</a><a href="https://data.cityofnewyork.us/Environment/2018-Central-Park-Squirrel-Census-Squirrel-Data/vfnx-vebw" target="_blank" rel="noopener noreferrer">Census: NYC Open Data ↗</a><a href="https://www.thesquirrelcensus.com/" target="_blank" rel="noopener noreferrer">The Squirrel Census ↗</a></div></div></section>
 </main>
-<footer><span>FIELD NOTES / CENTRAL PARK</span><span>2018 observations · 2019 project · A preserved exhibit</span></footer>
+<footer><span>SMALL PAWS / BIG CITY</span><div class="footer-links"><a href="census-original.csv" download>All sightings ↓</a><a href="#top">Back to top ↑</a></div></footer>
 </body>
 </html>

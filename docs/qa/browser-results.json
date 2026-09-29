@@ -1,7 +1,7 @@
 [
   {
     "width": 1440,
-    "ready_ms": 203.6,
+    "ready_ms": 83.8,
     "external_requests": [],
     "errors": [],
     "failed_resources": [],
@@ -12,7 +12,7 @@
   },
   {
     "width": 390,
-    "ready_ms": 72.9,
+    "ready_ms": 68.4,
     "external_requests": [],
     "errors": [],
     "failed_resources": [],
@@ -23,7 +23,7 @@
   },
   {
     "width": 278,
-    "ready_ms": 70.1,
+    "ready_ms": 72.2,
     "external_requests": [],
     "errors": [],
     "failed_resources": [],

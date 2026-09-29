@@ -47,10 +47,10 @@
     [record.fur === 'Unknown' ? 'Unknown fur color' : record.fur + ' fur', record.age === 'Unknown' ? 'Unknown age' : record.age].forEach(text => tags.append(node('span', text, 'tag')));
     target.append(tags);
     const facts = node('dl');
-    [['Location', record.location], ['Hectare', record.hectare], ['Coordinates', record.lat.toFixed(6) + ', ' + record.lon.toFixed(6)], ['Source row', number(record.key + 1)]].forEach(([label, value]) => facts.append(node('dt', label), node('dd', value)));
+    [['Location', record.location], ['Hectare', record.hectare], ['Coordinates', record.lat.toFixed(6) + ', ' + record.lon.toFixed(6)], ['Field note', number(record.key + 1)]].forEach(([label, value]) => facts.append(node('dt', label), node('dd', value)));
     target.append(facts, node('h4', 'WHAT WAS OBSERVED'));
     const activities = Object.entries(record.behaviors).filter(([, value]) => value === true).map(([name]) => name);
-    target.append(node('p', activities.length ? activities.join(' · ') : 'No behavior flags were marked for this sighting.'));
+    target.append(node('p', activities.length ? activities.join(' · ') : 'No activities noted.'));
     const unrecorded = Object.entries(record.behaviors).filter(([, value]) => value === null).map(([name]) => name);
     if (unrecorded.length) target.append(node('p', 'Not recorded: ' + unrecorded.join(', ')));
     const notes = Object.entries(record.notes).filter(([key, value]) => key !== 'Above Ground Sighter Measurement' || value !== 'FALSE');
@@ -59,8 +59,8 @@
       target.append(node('p', label === 'Above Ground Sighter Measurement' ? 'Recorded height (units not specified in source)' : label, 'note-label'));
       target.append(node('blockquote', value));
     });
-    if (!notes.length) target.append(node('p', 'No additional written notes were recorded.', 'detail-footer'));
-    if (idCounts.get(record.id) > 1) target.append(node('p', 'This ID appears more than once in the original census, with different coordinates. Each source row is preserved separately.', 'detail-footer'));
+    if (!notes.length) target.append(node('p', 'No extra notes for this sighting.', 'detail-footer'));
+    if (idCounts.get(record.id) > 1) target.append(node('p', 'Two sightings share this ID, each with its own spot on the map.', 'detail-footer'));
     document.querySelectorAll('.sighting-card').forEach(button => button.setAttribute('aria-pressed', String(Number(button.dataset.key) === selected)));
     drawMap();
     if (focus) target.focus({preventScroll: true});
@@ -73,10 +73,10 @@
       button.type = 'button';
       button.dataset.key = record.key;
       button.setAttribute('aria-pressed', String(record.key === selected));
-      button.setAttribute('aria-label', `${record.id}, ${record.fur} fur, ${record.age}, source row ${record.key + 1}. Open field note`);
+      button.setAttribute('aria-label', `${record.id}, ${record.fur} fur, ${record.age}, field note ${record.key + 1}. Open field note`);
       const top = node('span', undefined, 'card-top');
       top.append(node('span', undefined, 'fur-dot ' + record.fur.toLowerCase()), node('span', record.fur + ' · ' + record.age));
-      button.append(top, node('strong', record.id), node('small', formatDate(record.date) + ' · ' + record.shift), node('small', 'Source row ' + number(record.key + 1)), node('span', '↗', 'card-arrow'));
+      button.append(top, node('strong', record.id), node('small', formatDate(record.date) + ' · ' + record.shift), node('small', 'Note ' + number(record.key + 1)), node('span', '↗', 'card-arrow'));
       fragment.append(button);
     });
     $('sighting-list').replaceChildren(fragment);
